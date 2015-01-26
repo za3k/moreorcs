@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>More Orcs</title>
+    <script type="text/javascript" src="orcgen.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            function refresh_emails() {
+                 var emails = generate_orc_emails(10);
+                 $("#emails").html(null);
+                 for (var i = 0; i<emails.length; i++) {
+                    var email = emails[i];
+                    $("#emails").append("<li><a href=\"mailto:" + email.email + "\">" + email.orc + "</a> (<a href=\"" + email.link + "\">Read email</a>)</li>");
+                 }
+            };
+            refresh_emails();
+            $("#refresh").on("click", refresh_emails);
+        }) 
+    </script>
+</head>
+<body>
+<img src="orc.jpg" width="300px"/>
+<br/>
+Orc-themed emails for you:
+<ul id="emails"></ul>
+<button id="refresh">Refresh</button><br/>
+
+Powered by <a href="https://mailinator.com">mailinator</a>.
+</body>
