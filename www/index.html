@@ -3,27 +3,46 @@
     <title>More Orcs</title>
     <script type="text/javascript" src="orcgen.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script type="text/html" id="page_tmpl">
+        <% emails.map(function(email){ %>
+          <tr>
+            <td><a href="mailto:<%=email.email%>"><%=email.orc%></a></td>
+            <td class="text-right"><a href="<%=email.link%>" target="_blank">Read Email</a></td>
+          </tr>
+        <% }); %>
+    </script>
     <script type="text/javascript">
+        var tmpl = tmpl("page_tmpl");
+        function refresh_emails() {
+            $("#emails").html(tmpl({
+                emails: generate_orc_emails(12)
+            }));
+        }
         $(document).ready(function(){
-            function refresh_emails() {
-                 var emails = generate_orc_emails(10);
-                 $("#emails").html(null);
-                 for (var i = 0; i<emails.length; i++) {
-                    var email = emails[i];
-                    $("#emails").append("<li><a href=\"mailto:" + email.email + "\">" + email.orc + "</a> (<a href=\"" + email.link + "\">Read email</a>)</li>");
-                 }
-            };
             refresh_emails();
             $("#refresh").on("click", refresh_emails);
         }) 
     </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 </head>
 <body>
-<img src="orc.jpg" width="300px"/>
-<br/>
-Orc-themed emails for you:
-<ul id="emails"></ul>
-<button id="refresh">Refresh</button><br/>
-
-Powered by <a href="https://mailinator.com">mailinator</a>.
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+    <h1>Orc-themed Emails for You!</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6" style="padding-top:40px;">
+        <table id="emails" class="table"></table>
+        <button id="refresh" class="btn-lg btn-success center-block">More Orcs!</button>
+    </div>
+    <div class="col-sm-6" style="padding-top:40px;">
+      <img class="img-rounded" src="orc.jpg" width="300px"/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 text-center"><h4>Powered by <a href="https://mailinator.com">Mailinator</a></h4></div>
+  </div>
+</div>
 </body>
