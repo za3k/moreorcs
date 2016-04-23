@@ -3,10 +3,10 @@
     <title>More Orcs</title>
     <script type="text/javascript" src="orcgen.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script type="text/html" id="page_tmpl">
-        <table class="table">
+    <script type="text/html" id="page_tmpl">
+        <table class="table" style="table-layout: fixed;">
             <tr>
-                <td>Domain</td>
+                <td style="width: 100px;">Domain</td>
                 <td><%=domain.domain%></td>
             </tr>
             </tr>
@@ -20,16 +20,19 @@
             </tr>
             <tr>
                 <td>Curl</td>
-                <td><pre><%=domain.curl%></pre>
-                OR
-                <pre><%=domain.curl4 + "\n" + domain.curl6%></pre>
+                <td>
+                    <pre style="width: 100%"><%=domain.curl%></pre>
+                    OR with IPv6 support
+                    <pre style="width: 100%"><%=domain.curl4 + "\n" + domain.curl6%></pre>
                 </td>
             </tr>
             <tr>
                 <td>Crontab</td>
-                <td><pre><%=domain.cron%></pre>
-                OR
-                <pre><%=domain.cron4 + "\n" + domain.cron6%></pre></td>
+                <td>
+                    <pre><%=domain.cron%></pre>
+                    OR with IPv6 support
+                    <pre style="width: 100%"><%=domain.cron4 + "\n" + domain.cron6%></pre>
+                </td>
             </tr>
             <%if (domain.password) {%>
             <tr>
@@ -63,17 +66,26 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-    <h1>Orc-themed Subdomains for You!</h1>
+        <h1>Orc-themed Subdomains for You!</h1>
     </div>
   </div>
   <div class="row">
     <div class="col-sm-6" style="padding-top:40px;">
-        <div>
-            Subdomain: <input type="text" value="" id="subdomain"></input>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Subdomain</label>
+            <input type="text" class="form-control" id="subdomain">
+          </div>
         </div>
-        <button id="refresh" class="btn-lg btn-success center-block">More Orcs!</button>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+            <button id="refresh" class="btn-lg btn-success center-block">More Orcs!</button>
+        </div>
+      </div>
     </div>
-    <div class="col-sm-6" style="padding-top:40px;">
+    <div class="col-sm-6" style="padding-top:40px; padding-bottom: 15px;">
       <img class="img-rounded" src="orc.jpg" width="300px"/>
     </div>
   </div>

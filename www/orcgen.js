@@ -108,7 +108,7 @@ function generate_orc_domain(password, subdomain) {
     var curl6 = "curl -6 \"" + url + "\"";
     var curl = "curl \"" + url + "\"";
     var frequency = "*/15        *          *             *                *            "
-    var shutup = ">/dev/null 2>/devnull"
+    var shutup = ">/dev/null 2>/dev/null"
     var cron4 = frequency + "/usr/bin/curl -4 \"" + url + "\" " + shutup;
     var cron6 = frequency + "/usr/bin/curl -6 \"" + url + "\" " + shutup;
     var cron = frequency + "/usr/bin/curl \"" + url + "\" " + shutup;
