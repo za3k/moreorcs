@@ -45,7 +45,7 @@
     <script type="text/javascript">
         var tmpl = tmpl("page_tmpl");
         function refresh_domain(subdomain) {
-            var domain = generate_orc_domain(!!subdomain, subdomain);
+            var domain = generate_orc_domain(true, subdomain);
             $("#subdomain").val(domain.subdomain);
             $("#domain_doc").html(tmpl({
                 domain: domain,
