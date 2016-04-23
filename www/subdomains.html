@@ -9,13 +9,14 @@
                 <td>Domain</td>
                 <td><%=domain.domain%></td>
             </tr>
-            <tr>
-                <td>Password</td>
-                <td><%=domain.password%></td>
-            </tr>
             </tr>
                 <td>DDNS</td>
-                <td>Just run the curl or cron script below, and the IP you run it from is where <b><%=domain.domain%></b> will point to.</td>
+                <td>Just run any of the below, and the computer (IP) you run it from is where <b><%=domain.domain%></b> will point to.</td>
+            </tr>
+            <tr>
+                <td>Link</td>
+                <td><a href="<%=domain.url%>"><%=domain.url%></a>
+                </td>
             </tr>
             <tr>
                 <td>Curl</td>
@@ -27,15 +28,21 @@
             <tr>
                 <td>Crontab</td>
                 <td><pre><%=domain.cron%></pre>
-                OT
+                OR
                 <pre><%=domain.cron4 + "\n" + domain.cron6%></pre></td>
             </tr>
+            <%if (domain.password) {%>
+            <tr>
+                <td>Password</td>
+                <td><%=domain.password%></td>
+            </tr>
+            <%}%>
         </table>
     </script>
     <script type="text/javascript">
         var tmpl = tmpl("page_tmpl");
         function refresh_domain(subdomain) {
-            var domain = generate_orc_domain(true, subdomain);
+            var domain = generate_orc_domain(!!subdomain, subdomain);
             $("#subdomain").val(domain.subdomain);
             $("#domain_doc").html(tmpl({
                 domain: domain,
