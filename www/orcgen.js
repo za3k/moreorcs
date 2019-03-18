@@ -77,7 +77,7 @@ function generate_orc_emails(n) {
        var orc = generate_orc();
        var prefix = orc.replace(/ /g,"");
        var email = prefix + "@moreorcs.com";
-       var link = "https://mailinator.com/inbox2.jsp?to=" + prefix;
+       var link = "https://www.mailinator.com/v3/index.jsp?zone=public&query="+prefix+"#/#inboxpane";
        emails.push({
            "orc": orc,
            "email": email,
