@@ -15,7 +15,7 @@
             </tr>
             <tr>
                 <td>Link</td>
-                <td><a href="<%=domain.url%>"><%=domain.url%></a>
+                <td><a href="<%=domain.url%>" target="_blank"><%=domain.url%></a>
                 </td>
             </tr>
             <tr>
@@ -50,6 +50,7 @@
             $("#domain_doc").html(tmpl({
                 domain: domain,
             }));
+            $(".domain").text(domain.subdomain+".moreorcs.com");
         }
         $(document).ready(function(){
             refresh_domain();
@@ -60,22 +61,45 @@
             });
         }) 
     </script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container">
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link" aria-current="page" href="index.html">Emails</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="domain.html">Domain names</a>
+    </li>
+  </ul>
   <div class="row">
     <div class="col-sm-12">
         <h1>Orc-themed Subdomains for You!</h1>
     </div>
   </div>
   <div class="row">
+    <div class="col-sm-12">
+      <p>moreorcs.com offers free domain names that point to your computer</p>
+      <ol>
+        <li>run a webserver, minecraft server etc on your computer.</li>
+        <li>make sure you already have port forwarding set up so people outside your building can see your computer.</li>
+        <li>type in any custom domain name (ex. <span class="domain">alice.moreorcs.com</span>) or use the suggested one</li>
+        <li>click the special link below</li>
+        <li>visit <span class="domain">alice.moreorcs.com</span> and see your webserver. or connect to that address from minecraft, etc.</li>
+        <li>make sure to save the link somewhere, because it contains your secret password</li>
+        <li>if your domain ever stops working, your IP probably changed. just visit the link from the same computer again and everything should be fixed.</li>
+      </ol>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-sm-6" style="padding-top:40px;">
       <div class="row">
         <div class="col-sm-12">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Subdomain</label>
-            <input type="text" class="form-control" id="subdomain">
+          <label for="exampleInputEmail1">I want the domain: </label>
+          <br>
+          <div class="form-group form-inline" style="width: 100%;">
+            <input type="text" class="form-control form-control-inline" id="subdomain" style: "display: flex;">.moreorcs.com
           </div>
         </div>
       </div>

@@ -6,7 +6,8 @@
         <script type="text/html" id="page_tmpl">
         <% emails.map(function(email){ %>
           <tr>
-            <td><a href="mailto:<%=email.email%>"><%=email.orc%></a></td>
+            <td><%=email.orc%></td>
+            <td><a href="mailto:<%=email.email%>">Email Address</a></td>
             <td class="text-right"><a href="<%=email.link%>" target="_blank">Read Email</a></td>
           </tr>
         <% }); %>
@@ -23,13 +24,34 @@
             $("#refresh").on("click", refresh_emails);
         }) 
     </script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container">
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="index.html">Emails</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="domain.html">Domain names</a>
+    </li>
+  </ul>
   <div class="row">
     <div class="col-sm-12">
     <h1>Orc-themed Emails for You!</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <p>moreorcs.com offers free email addresses. You can have any email address you want: YOU@moreorcs.com. Email is receive-only, and will be deleted after a short period of time. Great for signing up for services you don't quite trust not to send you junk mail forever.</p>
+      <ol>
+        <li>find an orc-themed email you like below</li>
+        <li>copy the email address using the link on the left</li>
+        <li>sign up for the service you want to ue</li>
+        <li>click the "read email" link on the right</li>
+        <li>read your verification email</li>
+        <li>forget new email address forever</li>
+      </ol>
     </div>
   </div>
   <div class="row">
